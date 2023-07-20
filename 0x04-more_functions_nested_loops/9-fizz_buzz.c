@@ -32,7 +32,7 @@ int main(void)
 			printf("%d", i);
 		}
 
-        /* Separate each number/word by a space, except for the last one */
+		/* Separate each number/word by a space, except for the last one */
 		if (i != 100)
 		{
 			printf(" ");
@@ -41,5 +41,5 @@ int main(void)
 
 	printf("\n");
 
-	return 0;
+	return (0);
 }
