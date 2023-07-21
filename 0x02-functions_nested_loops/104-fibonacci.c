@@ -8,8 +8,18 @@
  */
 void print_big_number(unsigned long int a, unsigned long int b, int first)
 {
+	unsigned long int tmp;
+
 	if (!first)
 		printf(", ");
+
+	while (b >= 1000000000000000000)
+	{
+		tmp = a + (b / 1000000000000000000);
+		b = b % 1000000000000000000;
+		a = tmp;
+	}
+
 	if (b == 0)
 		printf("%lu", a);
 	else
