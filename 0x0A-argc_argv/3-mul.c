@@ -1,6 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+/**
+ *main - multiplies two numbers
+ *@argc: argument count
+ *@argv: argument vector
+ *Return: 0 if success and 1 if otherwise
+ */
 int main(int argc, char *argv[])
 {
 	if (argc == 3)
