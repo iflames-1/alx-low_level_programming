@@ -13,23 +13,19 @@
 char *_strdup(char *str)
 {
 	char *nstr;
-	int len, i = 0;
+	int len;
 
-	len = strlen(str);
 	if (str == NULL)
 	{
 		return (NULL);
 	}
+	len = strlen(str) + 1;
 	nstr = malloc(sizeof(char) * len);
 	if (nstr == NULL)
 	{
 		return (NULL);
 	}
-	while (len > 0)
-	{
-		nstr[i] = str[i];
-		i++;
-		len--;
-	}
+	strcpy(nstr, str);
+
 	return (nstr);
 }
