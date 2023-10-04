@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <ctype.h>
 
 /**
  *main - program that adds only positive numbers togeter
@@ -10,7 +11,7 @@
  */
 int main(int argc, char *argv[])
 {
-	int i, sum = 0;
+	int i, j, sum = 0;
 
 	if (argc == 1)
 	{
@@ -20,14 +21,17 @@ int main(int argc, char *argv[])
 	for (i = 1; i < argc; i++)
 	{
 		char *arg = argv[i];
-		int num = atoi(argv[i]);
-		/*Check if atoi encountered non-numeric input*/
-		if (num == 0 && arg[0] != '0')
+
+		for (j = 0; arg[j] != '\0'; j++)
 		{
-			printf("Error\n");
-			return (1);
+			if (!isdigit(arg[j]))
+			{
+				printf("Error\n");
+				return (1);
+			}
 		}
-		/*Check if the number is negative*/
+		int num = atoi(arg);
+
 		if (num < 0)
 		{
 			printf("Error\n");
