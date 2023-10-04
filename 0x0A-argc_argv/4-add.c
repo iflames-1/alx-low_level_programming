@@ -21,6 +21,7 @@ int main(int argc, char *argv[])
 	for (i = 1; i < argc; i++)
 	{
 		char *arg = argv[i];
+		int num = atoi(arg);
 
 		for (j = 0; arg[j] != '\0'; j++)
 		{
@@ -30,7 +31,6 @@ int main(int argc, char *argv[])
 				return (1);
 			}
 		}
-		int num = atoi(arg);
 
 		if (num < 0)
 		{
