@@ -1,5 +1,4 @@
 #include "main.h"
-#include <stdio.h>
 #include <stdlib.h>
 
 /**
@@ -14,7 +13,6 @@ char **strtow(char *str)
 
 	if (str == NULL || *str == '\0')
 		return (NULL);
-
 	/*Count the number of words*/
 	for (i = 0; str[i]; i++)
 	{
@@ -24,16 +22,20 @@ char **strtow(char *str)
 	words = malloc(sizeof(char *) * (word_count + 1));
 	if (words == NULL)
 		return (NULL);
-
 	i = 0;
 	word = str;
+	/*i serves as the index of each letter in a word*/
+	/*j serves as the index of each word in the string*/
 	for (j = 0; j < word_count; j++)
 	{
+		/*make *word hold only words*/
 		while (*word == ' ')
 			word++;
+		/*Count each word*/
 		for (i = 0; word[i] != ' ' && word[i] != '\0'; i++)
 			;
 		words[j] = malloc(sizeof(char) * (i + 1));
+		/*free the allocated memory if alloc fails*/
 		if (words[j] == NULL)
 		{
 			for (i = 0; i < j; i++)
@@ -41,12 +43,12 @@ char **strtow(char *str)
 			free(words);
 			return (NULL);
 		}
+		/*assign each word to a particular array index*/
 		for (i = 0; word[i] != ' ' && word[i] != '\0'; i++)
 			words[j][i] = word[i];
 		words[j][i] = '\0';
 		word += i;
 	}
 	words[word_count] = NULL;
-
 	return (words);
 }
