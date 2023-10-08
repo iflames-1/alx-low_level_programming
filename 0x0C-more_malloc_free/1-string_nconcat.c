@@ -3,9 +3,9 @@
 
 /**
  *string_nconcat - concatenates two strings
- *s1: first string
- *s2: second string
- *n: number of char to add from s2 to s1
+ *@s1: first string
+ *@s2: second string
+ *@n: number of char to add from s2 to s1
  *Return: allocated space in memory for concatenated strings
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
