@@ -38,9 +38,9 @@ list_t *add_node_end(list_t **head, const char *str)
 		return (NULL);
 	}
 	new_node->len = _strlen(str);
-	new_node->next = NULL;
+	new_node->next = NULL; /* Initialize the new node's next pointer to NULL */
 
-	if (*head == NULL)
+	if (*head == NULL) /* If the list is empty, set the new node as the head */
 	{
 		*head = new_node;
 	}
@@ -48,12 +48,12 @@ list_t *add_node_end(list_t **head, const char *str)
 	{
 		list_t *current;
 
-		current = *head; /* current is set to NULL */
+		current = *head; /* Start at the head of the list */
 		while (current->next != NULL)
 		{
-			current = current->next;
+			current = current->next; /* Traverse to the last node */
 		}
-		current->next = new_node; /* */
+		current->next = new_node; /* Attach the new node to the last node */
 	}
 
 	return (new_node);
