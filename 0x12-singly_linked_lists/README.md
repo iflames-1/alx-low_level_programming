@@ -21,3 +21,10 @@ gcc -Wall -pedantic -Werror -Wextra -std=gnu89 test/1-main.c 1-list_len.c -o b
 ```c
 gcc -Wall -pedantic -Werror -Wextra -std=gnu89 2-main.c test/2-add_node.c 0-print_list.c -o c
 ```
+
+### 3-add_node_end.c
+> A function that adds a new node at the end of a list_t list.
+> Compile and test with
+```c
+gcc -Wall -pedantic -Werror -Wextra -std=gnu89 3-main.c 3-add_node_end.c 0-print_list.c -o d
+```
