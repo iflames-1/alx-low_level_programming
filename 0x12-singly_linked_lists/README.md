@@ -42,3 +42,10 @@ gcc -Wall -pedantic -Werror -Wextra -std=gnu89 test/4-main.c 4-free_list.c 3-add
 ```c
 gcc -Wall -pedantic -Werror -Wextra -std=gnu89 100-main.c 100-first.c -o first
 ```
+
+### 101-hello_holberton.asm  *doesnt work yet :D*
+> A 64-bit program in assembly that prints Hello, Holberton, followed by a new line.
+> Compile and test with
+```c
+gcc -no-pie -std=gnu89 101-hello_holberton.o -o hello
+```
