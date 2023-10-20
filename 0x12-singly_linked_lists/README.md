@@ -28,3 +28,10 @@ gcc -Wall -pedantic -Werror -Wextra -std=gnu89 2-main.c test/2-add_node.c 0-prin
 ```c
 gcc -Wall -pedantic -Werror -Wextra -std=gnu89 3-main.c 3-add_node_end.c 0-print_list.c -o d
 ```
+
+### 4-free_list.c
+> A function that frees a list_t list.
+> Compile and test with
+```c
+gcc -Wall -pedantic -Werror -Wextra -std=gnu89 test/4-main.c 4-free_list.c 3-add_node_end.c 0-print_list.c -o e
+```
