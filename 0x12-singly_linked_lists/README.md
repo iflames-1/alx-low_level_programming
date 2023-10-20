@@ -35,3 +35,10 @@ gcc -Wall -pedantic -Werror -Wextra -std=gnu89 3-main.c 3-add_node_end.c 0-print
 ```c
 gcc -Wall -pedantic -Werror -Wextra -std=gnu89 test/4-main.c 4-free_list.c 3-add_node_end.c 0-print_list.c -o e
 ```
+
+### 100-first.c
+> A function that prints You're beat! and yet, you must allow,\nI bore my house upon my back!\n before the main function is executed.
+> Compile and test with
+```c
+gcc -Wall -pedantic -Werror -Wextra -std=gnu89 100-main.c 100-first.c -o first
+```
