@@ -64,7 +64,7 @@ valgrind ./e
 
 ### 5-free_listint2.c
 
->  a function that frees a listint_t list and sets the head to NULL.
+>  A function that frees a listint_t list and sets the head to NULL.
 
 Compile and test with
 ```bash
@@ -74,3 +74,14 @@ gcc -Wall -pedantic -Werror -Wextra -std=gnu89 5-main.c 3-add_nodeint_end.c 0-pr
 valgrind ./f
 ```
 
+### 6-pop_listint.c
+
+> A function that deletes the head node of a listint_t linked list, and returns the head node’s data (n).
+
+Compile and test with
+```bash
+gcc -Wall -pedantic -Werror -Wextra -std=gnu89 6-main.c 3-add_nodeint_end.c 0-print_listint.c 5-free_listint2.c 6-pop_listint.c -o g
+```
+```bash
+valgrind ./g
+```
