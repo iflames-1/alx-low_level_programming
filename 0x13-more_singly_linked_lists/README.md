@@ -52,12 +52,25 @@ gcc -Wall -pedantic -Werror -Wextra -std=gnu89 test/3-main.c 3-add_nodeint_end.c
 
 ### 4-free_listint.c
 
-> a function that frees a listint_t list.
+> A function that frees a listint_t list.
 
 Copile and test with
 ```bash
 gcc -Wall -pedantic -Werror -Wextra -std=gnu89 test/4-main.c 3-add_nodeint_end.c 0-print_listint.c 4-free_listint.c -o e
 ```
 ```bash
-./e
+valgrind ./e
 ```
+
+### 5-free_listint2.c
+
+>  a function that frees a listint_t list and sets the head to NULL.
+
+Compile and test with
+```bash
+gcc -Wall -pedantic -Werror -Wextra -std=gnu89 5-main.c 3-add_nodeint_end.c 0-print_listint.c 5-free_listint2.c -o f
+```
+```bash
+valgrind ./f
+```
+
