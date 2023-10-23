@@ -80,8 +80,20 @@ valgrind ./f
 
 Compile and test with
 ```bash
-gcc -Wall -pedantic -Werror -Wextra -std=gnu89 6-main.c 3-add_nodeint_end.c 0-print_listint.c 5-free_listint2.c 6-pop_listint.c -o g
+gcc -Wall -pedantic -Werror -Wextra -std=gnu89 test/6-main.c 3-add_nodeint_end.c 0-print_listint.c 5-free_listint2.c 6-pop_listint.c -o g
 ```
 ```bash
 valgrind ./g
+```
+
+### 7-get_nodeint.c
+
+> A function that returns the nth node of a listint_t linked list.
+
+Compile and test with
+```bash
+gcc -Wall -pedantic -Werror -Wextra -std=gnu89 test/7-main.c 3-add_nodeint_end.c 0-print_listint.c 5-free_listint2.c 7-get_nodeint.c -o h
+```
+```bash
+./h
 ```
