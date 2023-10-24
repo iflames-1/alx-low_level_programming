@@ -143,3 +143,38 @@ gcc -Wall -pedantic -Werror -Wextra -std=gnu89 test/100-main.c 3-add_nodeint_end
 valgrind ./l
 ```
 
+### 101-print_listint_safe.c
+
+> A function that prints a listint_t linked list.
+
+Compile and test with
+```bash
+gcc -Wall -pedantic -Werror -Wextra -std=gnu89 test/101-main.c 2-add_nodeint.c 101-print_listint_safe.c -o m
+```
+```bash
+./m
+```
+
+### 102-free_listint_safe.c
+
+> A function that frees a listint_t list.
+
+Compile and test with
+```bash
+gcc -Wall -pedantic -Werror -Wextra -std=gnu89 test/102-main.c 2-add_nodeint.c 101-print_listint_safe.c 102-free_listint_safe.c -o n
+```
+```bash
+./n
+```
+
+### 103-find_loop.c
+
+> A function that finds the loop in a linked list.
+
+Compile and test with
+```bash
+gcc -Wall -pedantic -Werror -Wextra -std=gnu89 test/103-main.c 2-add_nodeint.c 101-print_listint_safe.c 102-free_listint_safe.c 103-find_loop.c -o o
+```
+```bash
+./o
+```
