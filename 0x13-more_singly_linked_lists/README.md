@@ -97,3 +97,33 @@ gcc -Wall -pedantic -Werror -Wextra -std=gnu89 test/7-main.c 3-add_nodeint_end.c
 ```bash
 ./h
 ```
+
+### 8-sum_listint.c
+>  A function that returns the sum of all the data (n) of a listint_t linked list.
+
+Compile and test with
+```bash
+gcc -Wall -pedantic -Werror -Wextra -std=gnu89 test/8-main.c 3-add_nodeint_end.c 5-free_listint2.c 8-sum_listint.c -o i
+```
+```bash
+./i
+```
+
+### 9-insert_nodeint.c
+> A function that inserts a new node at a given position.
+
+Compile and test with
+```bash
+gcc -Wall -pedantic -Werror -Wextra -std=gnu89 test/9-main.c 3-add_nodeint_end.c 0-print_listint.c 5-free_listint2.c 9-insert_nodeint.c -o j
+```
+```bash
+./j
+```
+
+### 10-delete_nodeint.c
+> A function that deletes the node at index index of a listint_t linked list.
+
+Compile and test with
+```bash
+gcc -Wall -pedantic -Werror -Wextra -std=gnu89 test/10-main.c 3-add_nodeint_end.c 0-print_listint.c 5-free_listint2.c 10-delete_nodeint.c -o k
+```
