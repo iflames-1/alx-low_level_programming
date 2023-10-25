@@ -7,16 +7,34 @@
  */
 size_t print_listint_safe(const listint_t *head)
 {
+	/* Count of nodes processed */
 	size_t count = 0;
+	/* Slow-moving pointer */
+	const listint_t *tortoise = head;
+	/* Fast-moving pointer */
+	const listint_t *hare = head;
 
-	while (head != NULL)
+	/* Exit if the head is NULL */
+	if (head == NULL)
+		exit(98);
+
+	while (tortoise && hare && hare->next)
 	{
-		printf("[%d] %d\n", head->next, head->n);
+		/* Move the tortoise one step */
+		tortoise = tortoise->next;
+		/* Move the hare two steps */
+		hare = hare->next->next;
+		/* Increment the node count */
 		count++;
-		if (head < head->next)
-			head = head->next;
-		else
-			exit(98);
+
+		if (tortoise == hare)
+		{
+			/* If they meet, there's a loop in the list */
+			printf("[%p] %d\n", (void *)tortoise, tortoise->n);
+			return (count);
+		}
 	}
+
+	/* If the loop finishes, there's no loop in the list */
 	return (count);
 }
