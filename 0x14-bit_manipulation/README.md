@@ -37,3 +37,27 @@ gcc -Wall -pedantic -Werror -Wextra -std=gnu89 test/2-main.c 2-get_bit.c -o c
 ```bash
 ./c
 ```
+
+### [3-set_bit.c](./3-set_bit.c)
+
+> A function that sets the value of a bit to 1 at a given index.
+
+Compile and test with
+```bash
+gcc -Wall -pedantic -Werror -Wextra -std=gnu89 test/3-main.c 3-set_bit.c -o d
+```
+```bash
+./d
+```
+
+### [4-clear_bit.c](./4-clear_bit.c)
+
+> A function that sets the value of a bit to 0 at a given index.
+
+Compile and test with
+```bash
+gcc -Wall -pedantic -Werror -Wextra -std=gnu89 test/4-main.c 4-clear_bit.c -o e
+```
+```bash
+./e
+```
