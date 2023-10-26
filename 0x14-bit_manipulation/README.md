@@ -10,6 +10,9 @@ Compile and test with
 ```bash
 gcc -Wall -pedantic -Werror -Wextra -std=gnu89 test/0-main.c 0-binary_to_uint.c -o a
 ```
+```bash
+./a
+```
 
 ### [1-print_binary.c](./1-print_binary.c)
 
@@ -18,4 +21,19 @@ gcc -Wall -pedantic -Werror -Wextra -std=gnu89 test/0-main.c 0-binary_to_uint.c 
 Compile and test with
 ```bash
 gcc -Wall -pedantic -Werror -Wextra -std=gnu89 test/1-main.c 1-print_binary.c _putchar.c -o b
+```
+```bash
+./b
+```
+
+### [2-get_bit.c](./2-get_bit.c)
+
+> A function that returns the value of a bit at a given index.
+
+Compile and tes with
+```bash
+gcc -Wall -pedantic -Werror -Wextra -std=gnu89 test/2-main.c 2-get_bit.c -o c
+```
+```bash
+./c
 ```
