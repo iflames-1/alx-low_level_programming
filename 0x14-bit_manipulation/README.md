@@ -61,3 +61,39 @@ gcc -Wall -pedantic -Werror -Wextra -std=gnu89 test/4-main.c 4-clear_bit.c -o e
 ```bash
 ./e
 ```
+
+### [5-flip_bits.c](./5-flip_bits.c)
+
+>  A function that returns the number of bits you would need to flip to get from one number to another.
+
+Compile and tes with
+```bash
+gcc -Wall -pedantic -Werror -Wextra -std=gnu89 test/5-main.c 5-flip_bits.c -o f
+```
+```bash
+./f
+```
+
+### [100-get_endianness.c](./100-get_endianness.c)
+
+> A function that checks the endianness.
+
+Compile and test with
+```bash
+gcc -Wall -pedantic -Werror -Wextra -std=gnu89 test/100-main.c 100-get_endianness.c -o h
+```
+```bash
+./h
+```
+```bash
+lscpu | head
+```
+
+### [101-password](./101-password)
+
+> Find the password for [this program](https://github.com/alx-tools/0x13.c).
+
+Check with
+```bash
+cat 101-password
+```
