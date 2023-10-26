@@ -1,6 +1,7 @@
 # Singly Linked Lists in C
 
 **All test files are included in the test folder of this directory**
+
 ### 0-print_list.c
 > A function that prints all the elements of a list_t list.
 > Compile and test with
