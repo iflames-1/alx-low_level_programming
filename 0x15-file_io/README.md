@@ -25,6 +25,10 @@ gcc -Wall -pedantic -Werror -Wextra -std=gnu89 test/1-main.c 1-create_file.c -o 
 ```
 ./b hello world
 ```
+```bash
+ls -l hello
+cat hello
+```
 
 ### [2-append_text_to_file.c](./2-append_text_to_file.c)
 
