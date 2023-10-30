@@ -3,12 +3,19 @@
 void error_message(int code, const char *format, ...)
 {
 	va_list args;
+
 	va_start(args, format);
 	dprintf(STDERR_FILENO, format, args);
 	va_end(args);
 	exit(code);
 }
 
+/**
+ *main - checks code
+ *@argc: argument count
+ *@argv: argument vector
+ *Return: 0 on success
+ */
 int main(int argc, char *argv[])
 {
 	int fd_from, fd_to;

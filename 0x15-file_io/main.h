@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include <errno.h>
+#include <elf.h>
 
 size_t _strlen(const char *s);
 
