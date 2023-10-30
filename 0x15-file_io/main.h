@@ -1,10 +1,14 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+#define BUF_SIZE 1024
+
 #include <unistd.h>
 #include <fcntl.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <stdarg.h>
+#include <errno.h>
 
 size_t _strlen(const char *s);
 
