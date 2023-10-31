@@ -18,7 +18,7 @@ int main(int argc, char *argv[])
 		exit(97);
 	}
 
-	file_to = open(argv[2], O_TRUNC | O_WRONLY | O_CREAT, 0660);
+	file_to = open(argv[2], O_TRUNC | O_WRONLY | O_CREAT | O_APPEND, 0660);
 	file_from = open(argv[1], O_RDONLY);
 	read_byte = read(file_from, buffer, BUF_SIZE);
 
