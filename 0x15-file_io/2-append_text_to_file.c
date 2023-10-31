@@ -26,7 +26,7 @@ size_t _strlen(const char *s)
 int append_text_to_file(const char *filename, char *text_content)
 {
 	int fd;
-	ssize_t bytes_written;
+	ssize_t write_bytes;
 
 	if (filename == NULL)
 		return (-1);
@@ -34,20 +34,20 @@ int append_text_to_file(const char *filename, char *text_content)
 	if (text_content == NULL)
 		return (1);
 
-	fd = open(filename, O_WRONLY | O_APPEND);
-
-	/* File does not exist or permission issue. */
+	fd = open(filename, O_WRONLY | O_APPEND, 0664);
 	if (fd == -1)
-		return (-1);
-
-	bytes_written = write(fd, text_content, _strlen(text_content));
-	if (bytes_written == -1)
 	{
 		close(fd);
-		return (-1); /* write failure */
+		return (-1);
+	}
+
+	write_bytes = write(fd, text_content, _strlen(text_content));
+	if (write_bytes == -1)
+	{
+		close(fd);
+		return (-1);
 	}
 
 	close(fd);
-
 	return (1);
 }
