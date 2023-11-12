@@ -3,7 +3,7 @@
 
 ### [0x00 - Hello, World](./0x00-hello_world/README.md)
 
-### [0x01 Variables, if, else, while](./0x01-variables_if_else_while/README.md)
+### [0x01 - Variables, if, else, while](./0x01-variables_if_else_while/README.md)
 
 ### [0x02 - Functions, nested loops](./0x02-functions_nested_loops/README.md)
 
