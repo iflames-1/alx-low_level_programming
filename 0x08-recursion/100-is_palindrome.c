@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
- *_strlen_recursion -  returns the length of a string
- *@s: pointer to string
- *Return: string length
+ * _strlen_recursion -  returns the length of a string
+ * @s: pointer to string
+ * Return: string length
  */
 int _strlen_recursion(char *s)
 {
@@ -15,11 +15,11 @@ int _strlen_recursion(char *s)
 }
 
 /**
- *check_palindrome - checks if its palindrome
- *@s: string to check
- *@start: string of start
- *@end: end of string
- *Return: 1 if a string is a palindrome and 0 if not
+ * check_palindrome - checks if its palindrome
+ * @s: string to check
+ * @start: string of start
+ * @end: end of string
+ * Return: 1 if a string is a palindrome and 0 if not
  */
 int check_palindrome(char *s, int start, int end)
 {
@@ -35,9 +35,9 @@ int check_palindrome(char *s, int start, int end)
 }
 
 /**
- *is_palindrome - checks if a string is palindrome
- *@s: string to check
- *Return: 1 if it is palindrome and 0 if otherwise
+ * is_palindrome - checks if a string is palindrome
+ * @s: string to check
+ * Return: 1 if it is palindrome and 0 if otherwise
  */
 int is_palindrome(char *s)
 {
