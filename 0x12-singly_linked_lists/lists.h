@@ -12,13 +12,12 @@
  *@len: length of the string
  *@next: points to next string
  */
-struct list
+typedef struct list
 {
 	char *str;
 	unsigned int len;
 	struct list *next;
-};
-typedef struct list list_t;
+} list_t;
 
 size_t print_list(const list_t *h);
 size_t list_len(const list_t *h);
