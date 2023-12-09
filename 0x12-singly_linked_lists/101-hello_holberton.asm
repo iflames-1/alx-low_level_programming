@@ -119,14 +119,14 @@ Disassembly of section .text:
   40113e:	48 8d 05 bf 0e 00 00 	lea    rax,[rip+0xebf]        # 402004 <_IO_stdin_used+0x4>
   401145:	48 89 c7             	mov    rdi,rax
   401148:	e8 f3 fe ff ff       	call   401040 <puts@plt>
-  40114d:	90                   	nop
-  40114e:	5d                   	pop    rbp
-  40114f:	c3                   	ret    
+  40114d:	b8 01 00 00 00       	mov    eax,0x1
+  401152:	5d                   	pop    rbp
+  401153:	c3                   	ret    
 
 Disassembly of section .fini:
 
-0000000000401150 <_fini>:
-  401150:	f3 0f 1e fa          	endbr64 
-  401154:	48 83 ec 08          	sub    rsp,0x8
-  401158:	48 83 c4 08          	add    rsp,0x8
-  40115c:	c3                   	ret    
+0000000000401154 <_fini>:
+  401154:	f3 0f 1e fa          	endbr64 
+  401158:	48 83 ec 08          	sub    rsp,0x8
+  40115c:	48 83 c4 08          	add    rsp,0x8
+  401160:	c3                   	ret    
