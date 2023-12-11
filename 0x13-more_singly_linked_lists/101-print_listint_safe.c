@@ -9,8 +9,8 @@ size_t print_listint_safe(const listint_t *head)
 {
 	/* Count of nodes processed */
 	size_t count = 0;
-	const listint_t *tortoise = head;
-	const listint_t *hare = head;
+	const listint_t *tortoise;
+	const listint_t *hare;
 
 	if (head == NULL)
 		exit(98);
