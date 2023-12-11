@@ -20,3 +20,5 @@
 ### [0x15 - File I/O](./0x14-bit_manipulation/README.md)
 
 ### [0x17. C - Doubly linked lists](./0x17-doubly_linked_lists/README.md)
+
+### [0x18. C - Dynamic libraries](./0x18-dynamic_libraries/README.md)
