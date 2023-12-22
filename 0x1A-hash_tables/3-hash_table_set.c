@@ -60,10 +60,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	hash_node_t *current_node = ht->array[index];
 
 	if (index > ht->size)
-	{
-		printf("Set Error: Index out of range\n");
 		return (0);
-	}
 
 	value_dup = strdup(value);
 	key_dup = strdup(key);
