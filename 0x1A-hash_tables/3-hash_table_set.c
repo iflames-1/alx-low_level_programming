@@ -1,0 +1,93 @@
+#include "hash_tables.h"
+
+/**
+ * free_dup - frees duplicated strings from hash_table_set
+ * @value: free value
+ * @key: free key
+ */
+void free_dup(char *value, char *key)
+{
+	free(value);
+	free(key);
+}
+
+/**
+ * handle_collision - handle collision
+ * @current_node: current node
+ * @value_dup: value
+ * @key_dup: key
+ * Return: 1 on success and 0 otherwise
+ */
+int handle_collision(hash_node_t *current_node, char *value_dup, char *key_dup)
+{
+	while (current_node != NULL)
+	{
+		if (strcmp(current_node->key, key_dup) == 0)
+		{
+			current_node->value = value_dup;
+			free_dup(value_dup, key_dup);
+			return (1);
+		}
+		if (current_node->next == NULL)
+			break;
+		current_node = current_node->next;
+	}
+	current_node->next = malloc(sizeof(hash_node_t));
+	if (current_node->next == NULL)
+	{
+		free_dup(value_dup, key_dup);
+			return (0);
+	}
+	current_node = current_node->next;
+	current_node->next = NULL;
+	current_node->key = key_dup;
+	current_node->value = value_dup;
+
+	return (1);
+}
+
+/**
+ * hash_table_set - adds an element to the hash table
+ * @ht: hash table we are add or updating.
+ * @key: the key
+ * @value: value associated with the key
+ * Return: 1 on success and 0 otherwise
+ */
+int hash_table_set(hash_table_t *ht, const char *key, const char *value)
+{
+	unsigned long int index = key_index((const unsigned char *)key, ht->size);
+	char *value_dup, *key_dup;
+	hash_node_t *current_node = ht->array[index];
+
+	if (index > ht->size)
+	{
+		printf("Set Error: Index out of range\n");
+		return (0);
+	}
+
+	value_dup = strdup(value);
+	key_dup = strdup(key);
+	if (value_dup == NULL || key_dup == NULL)
+		return (0);
+
+	if (current_node == NULL)
+	{
+		current_node = malloc(sizeof(hash_node_t));
+		if (current_node == NULL)
+		{
+			free_dup(value_dup, key_dup);
+			return (0);
+		}
+
+		current_node->next = NULL;
+		current_node->key = key_dup;
+		current_node->value = value_dup;
+		ht->array[index] = current_node;
+	}
+	else
+	{
+		if (handle_collision(current_node, value_dup, key_dup))
+			return (1);
+	}
+	return (1);
+}
