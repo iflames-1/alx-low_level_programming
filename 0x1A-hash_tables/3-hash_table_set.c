@@ -59,9 +59,6 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	char *value_dup, *key_dup;
 	hash_node_t *current_node = ht->array[index];
 
-	if (index > ht->size)
-		return (0);
-
 	value_dup = strdup(value);
 	key_dup = strdup(key);
 	if (value_dup == NULL || key_dup == NULL)
