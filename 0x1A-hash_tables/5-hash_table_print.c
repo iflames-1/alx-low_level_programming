@@ -8,6 +8,7 @@ void hash_table_print(const hash_table_t *ht)
 {
 	unsigned long int i = 0;
 	hash_node_t *current;
+	int print_comma = 0;
 
 	if (ht == NULL)
 		return;
@@ -18,16 +19,17 @@ void hash_table_print(const hash_table_t *ht)
 		current = ht->array[i];
 		while (current != NULL)
 		{
+			if (print_comma)
+				printf(", ");
+
 			printf("'%s': '%s'", current->key, current->value);
 
-			printf(", ");
-
 			current = current->next;
+			print_comma = 1;
 		}
+
 		i++;
 	}
 
 	printf("}\n");
-
-	return;
 }
