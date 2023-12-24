@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdio.h>
-#include "hash_tables.h"
+#include "../hash_tables.h"
 
 void shash_table_print_rev(const shash_table_t *ht);
 
