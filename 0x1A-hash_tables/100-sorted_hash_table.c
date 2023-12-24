@@ -64,7 +64,8 @@ shash_table_t *shash_table_create(unsigned long int size)
  * @index: index
  * Return: 1 on sucess
  */
-int shash_node_set(shash_table_t *ht, shash_node_t *new_node, unsigned long int index)
+int shash_node_set(shash_table_t *ht, shash_node_t *new_node,
+unsigned long int index)
 {
 	shash_node_t *tmp_node = NULL;
 
@@ -103,9 +104,10 @@ int shash_node_set(shash_table_t *ht, shash_node_t *new_node, unsigned long int 
 
 /**
  * s_handle_collision - handle collision
- * @current_node: current node
- * @value_dup: value
- * @key_dup: key
+ * @ht: table
+ * @new_node: new node
+ * @value: value
+ * @key: key
  * @index: index
  * Return: 1 on success and 0 otherwise
  */

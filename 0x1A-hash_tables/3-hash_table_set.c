@@ -1,19 +1,6 @@
 #include "hash_tables.h"
 
 /**
- * free_dup - frees duplicated strings from hash_table_set
- * @value: free value
- * @key: free key
- */
-void free_dup(char *value, char *key)
-{
-	if (value)
-		free(value);
-	if (key)
-		free(key);
-}
-
-/**
  * _free - free function
  * @key: key
  * @value: value
@@ -36,8 +23,8 @@ void _free(char *key, char *value, hash_node_t *new_node)
 /**
  * handle_collision - handle collision
  * @current_node: current node
- * @value_dup: value
- * @key_dup: key
+ * @value: value
+ * @key: key
  * Return: 1 on success and 0 otherwise
  */
 int handle_collision(hash_node_t *current_node, char *value, char *key)
