@@ -7,8 +7,10 @@
  */
 void free_dup(char *value, char *key)
 {
-	free(value);
-	free(key);
+	if (value)
+		free(value);
+	if (key)
+		free(key);
 }
 
 /**
@@ -18,14 +20,14 @@ void free_dup(char *value, char *key)
  * @key_dup: key
  * Return: 1 on success and 0 otherwise
  */
-int handle_collision(hash_node_t *current_node, char *value_dup, char *key_dup)
+int handle_collision(hash_node_t *current_node, char *value, char *key)
 {
 	while (current_node != NULL)
 	{
-		if (strcmp(current_node->key, key_dup) == 0)
+		if (strcmp(current_node->key, key) == 0)
 		{
-			current_node->value = value_dup;
-			free_dup(value_dup, key_dup);
+			current_node->value = value;
+			free_dup(NULL, key);
 			return (1);
 		}
 		if (current_node->next == NULL)
@@ -35,13 +37,14 @@ int handle_collision(hash_node_t *current_node, char *value_dup, char *key_dup)
 	current_node->next = malloc(sizeof(hash_node_t));
 	if (current_node->next == NULL)
 	{
-		free_dup(value_dup, key_dup);
-			return (0);
+		free_dup(value, key);
+		free(current_node);
+		return (0);
 	}
 	current_node = current_node->next;
 	current_node->next = NULL;
-	current_node->key = key_dup;
-	current_node->value = value_dup;
+	current_node->key = key;
+	current_node->value = value;
 
 	return (1);
 }
