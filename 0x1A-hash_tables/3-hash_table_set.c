@@ -14,6 +14,26 @@ void free_dup(char *value, char *key)
 }
 
 /**
+ * _free - free function
+ * @key: key
+ * @value: value
+ * @new_node: node
+ */
+void _free(char *key, char *value, hash_node_t *new_node)
+{
+	if (key)
+		free(key);
+	if (value)
+		free(value);
+	if (new_node)
+	{
+		free(new_node->key);
+		free(new_node->value);
+		free(new_node);
+	}
+}
+
+/**
  * handle_collision - handle collision
  * @current_node: current node
  * @value_dup: value
@@ -27,20 +47,21 @@ int handle_collision(hash_node_t *current_node, char *value, char *key)
 		if (strcmp(current_node->key, key) == 0)
 		{
 			current_node->value = value;
-			free_dup(NULL, key);
+			free(key);
 			return (1);
 		}
 		if (current_node->next == NULL)
 			break;
 		current_node = current_node->next;
 	}
+
 	current_node->next = malloc(sizeof(hash_node_t));
 	if (current_node->next == NULL)
 	{
-		free_dup(value, key);
-		free(current_node);
+		_free(key, value, current_node);
 		return (0);
 	}
+
 	current_node = current_node->next;
 	current_node->next = NULL;
 	current_node->key = key;
@@ -61,7 +82,7 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 	unsigned long int index;
 	hash_node_t *current_node, *new_node;
 
-	if (key == NULL || ht == NULL || *key == '\0')
+	if (!key || !ht)
 		return (0);
 
 	index = key_index((const unsigned char *)key, ht->size);
@@ -75,9 +96,9 @@ int hash_table_set(hash_table_t *ht, const char *key, const char *value)
 
 		new_node->key = strdup(key);
 		new_node->value = strdup(value);
-		if (new_node->key == NULL || new_node->value == NULL)
+		if (!new_node->key || new_node->value == NULL)
 		{
-			free_dup(new_node->value, new_node->key);
+			_free(new_node->key, new_node->value, new_node);
 			return (0);
 		}
 		new_node->next = ht->array[index];
