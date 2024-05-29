@@ -1,0 +1,16 @@
+# Makefile for building 'school' executable
+
+
+CC = gcc
+
+CFLAGS = -Wall -Werror -pendantic -std=gnu99
+
+EXECUTABLE = school
+
+SRCS = main.c school.c
+
+all:
+	$(CC) $(SRCS) -o $(EXECUTABLE)
+
+clean:
+	rm -f $(EXECUTABLE)
