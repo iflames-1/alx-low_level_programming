@@ -31,11 +31,11 @@ fclean: clean oclean
 
 # Rule to delete object files
 oclean:
-	$(RM) $(OBJ)
+	-$(RM) $(OBJ)
 
 # Clean rule to remove object files and the executable
 clean:
-	$(RM) *~ $(NAME)
+	-$(RM) *~ $(NAME)
 
 # Rule to force recompilation of all source files
 re: oclean all
