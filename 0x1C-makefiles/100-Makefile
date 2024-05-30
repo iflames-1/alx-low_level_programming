@@ -15,7 +15,7 @@ NAME = school
 RM := rm -f
 
 # Define rules
-.PHONY: all clean oclean fclean re
+.PHONY: all clean fclean oclean re
 
 all: $(NAME)
 
