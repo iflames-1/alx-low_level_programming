@@ -3,7 +3,7 @@
 # Variables
 CC := gcc
 CFLAGS := -Wall -Werror -Wextra -pedantic
-SRC := main.c school.c
+SRC := $(wildcard *.c)
 OBJ := $(SRC:.c=.o)
 NAME := school
 RM := rm -f
@@ -12,7 +12,7 @@ RM := rm -f
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(OBJ) -o $(NAME)
+	$(CC) $(CFLAGS) -o $@ $^
 
 clean:
 	-$(RM) $(NAME) *~
@@ -27,8 +27,9 @@ re: fclean all
 # Prevent make from considering these as files
 .PHONY: all clean oclean fclean re
 
-# Dependency on header file
-$(OBJ): m.h
+# Ensure m.h exists
+$(OBJ): | m.h
+	@true
 
 # Check if m.h exists, if not, prevent compilation
 $(shell [ -e m.h ] || (echo "m.h header file not found." && exit 1))
