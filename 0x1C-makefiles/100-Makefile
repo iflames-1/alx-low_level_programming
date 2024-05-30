@@ -1,35 +1,38 @@
-# Makefile for building the school executable
+# Makefile for building 'school' executable
 
-# Variables
-CC := gcc
-CFLAGS := -Wall -Werror -Wextra -pedantic
-SRC := $(wildcard *.c)
-OBJ := $(SRC:.c=.o)
-NAME := school
+# Define the compiler and compiler flags
+CC = gcc
+CFLAGS = -Wall -Werror -Wextra -pedantic
+
+# Define source files and object files
+SRC = main.c school.c
+OBJ = $(SRC:.c=.o)
+
+# Define the name of the executable
+NAME = school
+
+# Define the program to delete files
 RM := rm -f
 
-# Rules
+# Define rules
+.PHONY: all clean oclean fclean re
+
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) -o $@ $^
+	$(CC) $(CFLAGS) $^ -o $@
 
 clean:
-	-$(RM) $(NAME) *~
+	-$(RM) *~ $(NAME)
 
 oclean:
 	-$(RM) $(OBJ)
 
 fclean: clean oclean
 
-re: fclean all
-
-# Prevent make from considering these as files
-.PHONY: all clean oclean fclean re
-
-# Ensure m.h exists
-$(OBJ): | m.h
-	@true
+re: clean all
 
 # Check if m.h exists, if not, prevent compilation
-$(shell [ -e m.h ] || (echo "m.h header file not found." && exit 1))
+ifeq ($(wildcard m.h),)
+$(error m.h header file not found.)
+endif
