@@ -41,7 +41,7 @@ clean:
 	-$(RM) *~ $(NAME)
 
 # Rule to force recompilation of all source files
-re: clean all
+re: fclean all
 
 # Phony targets to prevent conflicts with file names
 .PHONY: all clean oclean fclean re
