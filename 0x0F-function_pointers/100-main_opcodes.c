@@ -2,51 +2,39 @@
 #include <stdlib.h>
 
 /**
- * print_opcodes - Prints the opcodes of a given function
- * @addr: Address of the function
- * @n: Number of bytes to print
- */
-void print_opcodes(char *addr, int n)
-{
-	int i;
-
-	for (i = 0; i < n; i++)
-	{
-		printf("%02hhx", addr[i]);
-		if (i < n - 1)
-			printf(" ");
-	}
-	printf("\n");
-}
-
-/**
- * main - Entry point
- * @argc: Argument count
- * @argv: Argument vector
- * Return: 0 on success, 1 on error
+ *main - reads the code
+ *@argc: argument count
+ *@argv: argument vector
+ *Return: result from operation
  */
 int main(int argc, char *argv[])
 {
-	char *main_addr;
-	int n_bytes;
-
 	if (argc != 2)
 	{
 		printf("Error\n");
 		return (1);
 	}
 
-	n_bytes = atoi(argv[1]);
+	int num_bytes = atoi(argv[1]);
 
-	if (n_bytes < 0)
+	if (num_bytes < 0)
 	{
 		printf("Error\n");
 		return (2);
 	}
 
-	main_addr = (char *)&main;
+	unsigned char *main_ptr = (unsigned char *)&main;
+	int i;
 
-	print_opcodes(main_addr, n_bytes);
+	for (i = 0; i < num_bytes; i++)
+	{
+		printf("%02x", main_ptr[i]);
+
+		if (i < num_bytes - 1)
+			printf(" ");
+	}
+
+	printf("\n");
 
 	return (0);
 }

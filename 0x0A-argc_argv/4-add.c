@@ -1,52 +1,44 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
+#include <ctype.h>
 
 /**
- * is_positive_integer - Check if a string is a positive integer
- * @str: The string to check
- *
- * Return: True if the string is a positive integer, otherwise false
- */
-bool is_positive_integer(char *str)
-{
-	while (*str)
-	{
-		if (*str < '0' || *str > '9')
-			return (false);
-		str++;
-	}
-	return (true);
-}
-
-/**
- * main - Entry point of the program
- * @argc: The number of command-line arguments
- * @argv: An array of strings containing the command-line arguments
- *
- * Return: 0 if successful, 1 if an error occurred
+ *main - program that adds only positive numbers togeter
+ *@argc: argument count
+ *@argv: argument vector
+ *Return: 0 if no argument is passed or success
+ *1 if argument is'nt a positive number
  */
 int main(int argc, char *argv[])
 {
-	int i, sum = 0;
+	int i, j, sum = 0;
 
 	if (argc == 1)
 	{
 		printf("0\n");
 		return (0);
 	}
-
 	for (i = 1; i < argc; i++)
 	{
-		if (is_positive_integer(argv[i]))
-			sum += atoi(argv[i]);
-		else
+		char *arg = argv[i];
+		int num = atoi(arg);
+
+		for (j = 0; arg[j] != '\0'; j++)
+		{
+			if (!isdigit(arg[j]))
+			{
+				printf("Error\n");
+				return (1);
+			}
+		}
+
+		if (num < 0)
 		{
 			printf("Error\n");
 			return (1);
 		}
+		sum += num;
 	}
-
 	printf("%d\n", sum);
 	return (0);
 }

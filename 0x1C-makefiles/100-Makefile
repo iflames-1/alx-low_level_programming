@@ -1,0 +1,33 @@
+# Makefile for building 'school' executable
+
+# Define the compiler and compiler flags
+CC = gcc
+CFLAGS = -Wall -Werror -Wextra -pedantic
+
+# Define source files and object files
+SRC = main.c school.c
+OBJ = $(SRC:.c=.o)
+
+# Define the name of the executable
+NAME = school
+
+# Define rules
+.PHONY: all clean oclean fclean re
+
+all: m.h $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
+
+clean:
+	-$(RM) *~ $(NAME)
+
+oclean:
+	-$(RM) $(OBJ)
+
+fclean: clean oclean
+
+re: oclean all
+
+# Check if m.h exists, if not, prevent compilation
+ifeq ($(wildcard m.h),)
+$(error m.h header file not found.)
+endif

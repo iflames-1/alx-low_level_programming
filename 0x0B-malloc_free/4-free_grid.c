@@ -2,23 +2,22 @@
 #include <stdlib.h>
 
 /**
- * free_grid - Frees a 2 dimensional grid created by alloc_grid
- * @grid: Pointer to the grid
- * @height: Height of the grid
- *
- * Return: Nothing.
+ *free_grid - frees memory allocated to 2D grid
+ *@grid: address of 2D grid
+ *@height: height of the grid
+ *Return: void
  */
 void free_grid(int **grid, int height)
 {
 	int i;
 
 	if (grid == NULL || height <= 0)
+	{
 		return;
-
+	}
 	for (i = 0; i < height; i++)
 	{
 		free(grid[i]);
 	}
-
 	free(grid);
 }

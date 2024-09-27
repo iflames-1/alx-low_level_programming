@@ -1,38 +1,34 @@
 #include "main.h"
 
 /**
- * _sqrt_recursion_helper - A helper function to calculate the square root.
- * @n: The number for which to calculate the square root.
- * @i: The current value to check if it is the square root.
- *
- * Return: The square root if found, otherwise -1.
+ *_sqrt_check - test for each number from 1 to see if its the sprt of n
+ *@n: number
+ *@i: iterator
+ *Return: perfect square
  */
-int _sqrt_recursion_helper(int n, int i)
+int _sqrt_check(int n, int i)
 {
-	if (i * i == n) /* Check if i is the square root. */
+	if (i * i >= n)
 	{
+		if (i * i == n)
+		{
 		return (i);
-	}
-	else if (i * i > n)
-	{
+		}
 		return (-1);
 	}
-
-	return (_sqrt_recursion_helper(n, i + 1));
+	return (_sqrt_check(n, i + 1));
 }
 
 /**
- * _sqrt_recursion - Calculates the natural square root of a number.
- * @n: The input number for which to calculate the square root.
- *
- * Return: The square root if found, otherwise -1.
+ *_sqrt_recursion - calculates the natural square root of a number
+ *@n: number
+ *Return: natural square root of n
  */
 int _sqrt_recursion(int n)
 {
-	if (n < 0) /* Check for the error case (negative number). */
+	if (n < 1)
 	{
 		return (-1);
 	}
-
-	return (_sqrt_recursion_helper(n, 0));
+	return (_sqrt_check(n, 0));
 }
